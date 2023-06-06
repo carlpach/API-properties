@@ -6,11 +6,11 @@ const getProperties = async (req, res) => {
         if (!property) {
             return res.status(404).json({message: 'Not found property'})
         }        
+        return res.status(200).json(property);
     } catch (error) {
         console.log("error ----", error);
         return res.status(500).json(error);
     }
 }
-
 
 module.exports = { getProperties };

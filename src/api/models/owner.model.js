@@ -9,6 +9,8 @@ const ownerSchema = new Schema (
         properties: {type: Schema.Types.ObjectId, ref: "property"},
         image: {type: String, required: false},
 
+    }, {
+        timestamps: true
     }
 )
 

@@ -14,6 +14,6 @@ connect();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/properties", propertiesRoutes)
+app.use("/properties", propertiesRoutes);
 
 app.listen(PORT,  () => console.log('listening on port', PORT));

@@ -8,7 +8,7 @@ const arrayProperties = [
     {
     "name": "Building Sequoia",
     "constructionYear": 2005,
-    "owners" : [],
+    "shareholders" : [],
     "geometry": {
       "location": {
         "lat": 47.361019,
@@ -19,7 +19,7 @@ const arrayProperties = [
     {
     "name": "Apartments Onyx",
     "constructionYear": 2011,
-    "owners" : [],
+    "shareholders" : [],
     "geometry": {
       "location": {
         "lat": 47.370145,
