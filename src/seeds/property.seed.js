@@ -1,4 +1,10 @@
-[
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const Property = require('../api/models/property.model');
+
+const arrayProperties = [
     {
     "name": "Building Sequoia",
     "constructionYear": 2005,
@@ -22,3 +28,21 @@
         }
     },
 ]
+
+mongoose.connect(process.env.DB_URL)
+.then( async () => {
+  const allProperties = await Property.find();
+  if (allProperties.length > 0) {
+      await Property.collection.drop();
+      console.log('Properties deleted');
+  }
+})
+.catch((error) => console.log("error deleting properties", error))
+.then( async () => {
+    // populate db with the seed
+    const propertyMap = arrayProperties.map((propert) => new Property(propert));
+    await Property.insertMany(propertyMap);
+    console.log("Properties inserted");
+})
+.catch((error) => console.log("error insertando comidas", error))
+.finally(() => mongoose.disconnect());
